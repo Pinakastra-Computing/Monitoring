@@ -1,0 +1,50 @@
+global:
+  scrape_interval: 15s
+
+rule_files:
+  - 'prometheus.rules.yml'
+
+scrape_configs:
+
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'node_exporter'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9100']
+
+  - job_name: 'blackbox' #7587
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+        - https://medium.com
+        - https://www.infrastack-labs.com
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 127.0.0.1:9115  # The blackbox exporter's real hostname:port.
+
+  - job_name: 'grafana'
+    scrape_interval: 5s
+    static_configs:
+      - targets:
+        - localhost:3000
+
+  - job_name: 'haproxy'
+    static_configs:
+     - targets:
+       - localhost:9101
+
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - localhost:9093

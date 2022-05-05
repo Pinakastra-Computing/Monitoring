@@ -1,0 +1,27 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ['notif']
+  repeat_interval: 3h
+  group_interval: 5m
+  group_wait: 60s
+  receiver: 'devops'
+
+receivers:
+  - name: 'devops'
+    slack_configs:
+    - channel: '#training'
+      send_resolved: true
+      api_url: 'https://hooks.slack.com/services/T02AJ9XKJ7L/B02AJA9DETU/HdXGb9Gqf7ngRwD'
+      username: 'Yashwant Bokadia'
+      title: '[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] Monitoring Notification'
+      text: >-
+        {{ range .Alerts }}
+          *Alert:* {{ .Annotations.summary }} - '{{ .Labels.severity }}'
+          *Description:* {{ .Annotations.description }}
+          *Graph:* <{{ .GeneratorURL }}|:chart_with_upwards_trend:> *Runbook:* <{{ .Annotations.runbook }}|:spiral_note_pad:>
+          *Details:*
+          {{ range .Labels.SortedPairs }} *{{ .Name }}:* '{{ .Value }}'
+          {{ end }}
+        {{ end }}
