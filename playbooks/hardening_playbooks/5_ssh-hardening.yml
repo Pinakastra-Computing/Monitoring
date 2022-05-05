@@ -1,0 +1,8 @@
+- hosts: pilot,monitoring,logging
+  become: yes
+  roles:
+    - devsec.hardening.ssh_hardening
+  vars:
+    ssh_use_pam: true
+    ssh_server_ports: ['2552']
+    ssh_permit_root_login: without-password

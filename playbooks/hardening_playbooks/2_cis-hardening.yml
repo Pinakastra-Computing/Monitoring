@@ -1,0 +1,9 @@
+- hosts: pilot,monitoring,logging
+  become: yes
+  roles:
+    - florianutz.ubuntu2004_cis
+  vars:
+    ubuntu2004cis_ipv6_required: false
+    ubuntu2004cis_rule_5_2_9: false
+    ubuntu2004cis_rule_3_5_1_1: false
+    ubuntu2004cis_rule_3_5_1_3: false

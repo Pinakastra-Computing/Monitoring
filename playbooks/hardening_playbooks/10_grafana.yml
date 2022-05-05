@@ -1,0 +1,28 @@
+---
+- name  : "Grafana Setup"
+  hosts : monitoring
+  become: yes
+  tasks :
+    - name: "Download the Packages"
+      shell: sudo apt-get install -y adduser libfontconfig1
+
+    - name: "Download the Deb File"
+      shell: wget https://dl.grafana.com/enterprise/release/grafana-enterprise_8.5.2_amd64.deb
+
+    - name: "Install from the Deb File"
+      shell: sudo dpkg -i grafana-enterprise_8.5.2_amd64.deb
+
+    - name: "Remove the Monitoring Repo"
+      shell: rm -rf grafana-enterprise_8.5.2_amd64.deb
+
+    - name: "Service Daemon Reload"
+      shell: sudo systemctl daemon-reload
+
+    - name: "Start Grafana Service"
+      shell: sudo systemctl start grafana-server
+
+    - name: "Enable Grafana on Boot"
+      shell: sudo systemctl enable grafana-server.service
+
+    - name: "Status Check Grafana"
+      shell: sudo systemctl status grafana-server

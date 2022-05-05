@@ -1,0 +1,12 @@
+---
+- name  : "Lynis Report Generation"
+  hosts : combined
+  become: yes
+  tasks :
+    - name: "Download the Lynis Repo"
+      shell: git clone https://github.com/CISOfy/lynis /opt/pinakastra/lynis
+
+    - name: "Change the working directory to /opt/pinakastra/lynis"
+      shell: ./lynis audit system | ansi2html -l > `hostname`_before_hardening.html
+      args:
+        chdir: /opt/pinakastra/lynis

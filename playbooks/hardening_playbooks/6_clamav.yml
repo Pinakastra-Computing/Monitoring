@@ -1,0 +1,4 @@
+- hosts: pilot,monitoring,logging
+  become: yes
+  roles:
+    - geerlingguy.clamav

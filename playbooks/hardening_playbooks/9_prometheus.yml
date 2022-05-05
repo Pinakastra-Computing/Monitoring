@@ -1,0 +1,15 @@
+---
+- name  : "Prometheus Setup"
+  hosts : monitoring
+  become: yes
+  tasks :
+    - name: "Download the Monitoring Repo"
+      shell: git clone https://github.com/Pinakastra-Computing/Monitoring.git /opt/pinakastra/monitoring
+
+    - name: "Change the working directory to /opt/pinakastra/monitoring"
+      shell: /bin/bash prometheus.sh
+      args:
+        chdir: /opt/pinakastra/monitoring
+
+    - name: "Remove the Monitoring Repo"
+      shell: rm -rf /opt/pinakastra/monitoring

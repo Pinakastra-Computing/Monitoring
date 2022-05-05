@@ -1,0 +1,21 @@
+---
+- name  : "Lynis Report Generation and Disable Firewall"
+  hosts : combined
+  become: yes
+  tasks :
+    - name: "Stop Firewall Service"
+      shell: systemctl stop ufw
+
+    - name: "Disable Firewall Service"
+      shell: systemctl disable ufw
+
+    - name: "Mask Firewall Service"
+      shell: systemctl mask ufw
+
+    - name: "Download the Lynis Repo"
+      shell: git clone https://github.com/CISOfy/lynis /opt/pinakastra/lynis
+
+    - name: "Change the working directory to /opt/pinakastra/lynis"
+      shell: ./lynis audit system | ansi2html -l > `hostname`_after_cis_hardening.html
+      args:
+        chdir: /opt/pinakastra/lynis
