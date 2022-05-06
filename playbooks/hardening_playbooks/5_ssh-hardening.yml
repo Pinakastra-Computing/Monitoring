@@ -4,5 +4,8 @@
     - devsec.hardening.ssh_hardening
   vars:
     ssh_use_pam: true
+    sftp_enabled: true
     ssh_server_ports: ['2552']
+    ssh_server_password_login: true
     ssh_permit_root_login: without-password
+    sshd_authenticationmethods: publickey,password
