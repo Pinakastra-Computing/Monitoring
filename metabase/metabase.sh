@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###################################################################
+#Script Name	: Metabase Setup                                                                                        
+#Description	: Metabase Setup Script                                                                       
+#Args           :                                                                                    
+#Author       	: Yashwant Bokadia (Pinakastra Computing)                                              
+#Email         	: cloud@pinakastra.com                                           
+###################################################################
+
 # Make metabase user
 sudo adduser --no-create-home --disabled-login --shell /bin/false --gecos "Metabase User" metabase
 

@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###################################################################
+#Script Name	: BlackBox Exporter Setup                                                                                        
+#Description	: BlackBox Exporter Setup Script                                                                       
+#Args           :                                                                                    
+#Author       	: Yashwant Bokadia (Pinakastra Computing)                                              
+#Email         	: cloud@pinakastra.com                                           
+###################################################################
+
 # Make blackbox_exporter user
 #sudo adduser --no-create-home --disabled-login --shell /bin/false --gecos "Blackbox Exporter User" blackbox_exporter
 

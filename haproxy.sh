@@ -1,3 +1,11 @@
+###################################################################
+#Script Name	: HAProxy Setup                                                                                        
+#Description	: HAProxy Setup Script                                                                       
+#Args           :                                                                                    
+#Author       	: Yashwant Bokadia (Pinakastra Computing)                                              
+#Email         	: cloud@pinakastra.com                                           
+###################################################################
+
 #wget https://github.com/prometheus/haproxy_exporter/releases/download/v0.12.0/haproxy_exporter-0.12.0.linux-amd64.tar.gz
 #tar -xzf haproxy_exporter-0.12.0.linux-amd64.tar.gz
 #cd haproxy_exporter-*

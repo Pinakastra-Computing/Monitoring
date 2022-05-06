@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###################################################################
+#Script Name	: Prometheus Setup                                                                                        
+#Description	: Promethues Setup Script                                                                       
+#Args           :                                                                                    
+#Author       	: Yashwant Bokadia (Pinakastra Computing)                                              
+#Email         	: cloud@pinakastra.com                                           
+###################################################################
+
 # Make prometheus user
 #sudo adduser --no-create-home --disabled-login --shell /bin/false --gecos "Prometheus Monitoring User" prometheus
 

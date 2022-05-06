@@ -1,4 +1,10 @@
 ---
+#Script Name: Metabase Installation Ansible YAML                                                                      
+#Description: Metabase Installation Ansible YAML                                                                       
+#Args:                                                                                    
+#Author: Yashwant Bokadia (Pinakastra Computing)                                              
+#Email: cloud@pinakastra.com
+
 - name  : "Metabase Setup"
   hosts : monitoring
   become: yes

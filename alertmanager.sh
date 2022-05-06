@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###################################################################
+#Script Name	: Prometheus AlertManager Setup                                                                                        
+#Description	: Prometheus AlertManager Setup Script                                                                       
+#Args           :                                                                                    
+#Author       	: Yashwant Bokadia (Pinakastra Computing)                                              
+#Email         	: cloud@pinakastra.com                                           
+###################################################################
+
 # Make alertmanager user
 #sudo adduser --no-create-home --disabled-login --shell /bin/false --gecos "Alertmanager User" alertmanager
 

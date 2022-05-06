@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###################################################################
+#Script Name	: Node Exporter Setup                                                                                        
+#Description	: Node Exporter Setup Script                                                                       
+#Args           :                                                                                    
+#Author       	: Yashwant Bokadia (Pinakastra Computing)                                              
+#Email         	: cloud@pinakastra.com                                           
+###################################################################
+
 # Make node_exporter user
 #sudo adduser --no-create-home --disabled-login --shell /bin/false --gecos "Node Exporter User" node_exporter
 
